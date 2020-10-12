@@ -43,7 +43,7 @@ hist(sum_data$total, xlab = "Total Steps", main = "Total Steps Taken Per Day")
 ```{r mean and median}
 summ_data <- sum_data %>%
   summarize(mean = mean(total, na.rm = TRUE), median = median(total, na.rm = TRUE))
-summ_data
+head(summ_data)
 ```
 
 ## **What is the Average Daily Activity Pattern**
@@ -53,7 +53,7 @@ data$interval <- as.factor(data$interval)
 str(data)
 library(ggplot2)
 TS_data <- data %>% group_by(interval) %>% summarize (mean = mean(steps, na.rm = TRUE))
-TS_data
+head(TS_data)
 ggplot(TS_data, aes(as.numeric(interval), mean)) + 
   geom_point() + 
   geom_path() +
@@ -97,7 +97,7 @@ hist(sumNA_data$total, xlab = "Total Steps", main = "Total Step Per Day with Rep
 ```{r}
 summNA_data <- sumNA_data %>%
   summarize(mean = mean(total, na.rm = TRUE), median = median(total, na.rm = TRUE))
-summNA_data
+head(summNA_data)
 ```
 ## ** Are there differences in activity patterns between weekdays and weekends?**
 ### 1. Create a new factor variable in the dataseet with two levels
