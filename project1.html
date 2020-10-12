@@ -433,7 +433,7 @@ head(sum_data)</code></pre>
 <h3>taken per day.</h3>
 <pre class="r"><code>summ_data &lt;- sum_data %&gt;%
   summarize(mean = mean(total, na.rm = TRUE), median = median(total, na.rm = TRUE))
-summ_data</code></pre>
+head(summ_data)</code></pre>
 <pre><code>## # A tibble: 1 x 2
 ##    mean median
 ##   &lt;dbl&gt;  &lt;int&gt;
@@ -452,21 +452,16 @@ str(data)</code></pre>
 ##  $ interval: Factor w/ 288 levels &quot;0&quot;,&quot;5&quot;,&quot;10&quot;,&quot;15&quot;,..: 1 2 3 4 5 6 7 8 9 10 ...</code></pre>
 <pre class="r"><code>library(ggplot2)
 TS_data &lt;- data %&gt;% group_by(interval) %&gt;% summarize (mean = mean(steps, na.rm = TRUE))
-TS_data</code></pre>
-<pre><code>## # A tibble: 288 x 2
-##    interval   mean
-##    &lt;fct&gt;     &lt;dbl&gt;
-##  1 0        1.72  
-##  2 5        0.340 
-##  3 10       0.132 
-##  4 15       0.151 
-##  5 20       0.0755
-##  6 25       2.09  
-##  7 30       0.528 
-##  8 35       0.868 
-##  9 40       0     
-## 10 45       1.47  
-## # … with 278 more rows</code></pre>
+head(TS_data)</code></pre>
+<pre><code>## # A tibble: 6 x 2
+##   interval   mean
+##   &lt;fct&gt;     &lt;dbl&gt;
+## 1 0        1.72  
+## 2 5        0.340 
+## 3 10       0.132 
+## 4 15       0.151 
+## 5 20       0.0755
+## 6 25       2.09</code></pre>
 <pre class="r"><code>ggplot(TS_data, aes(as.numeric(interval), mean)) + 
   geom_point() + 
   geom_path() +
@@ -536,7 +531,7 @@ head(sumNA_data)</code></pre>
 <h3>4b.Mean and median steps per day</h3>
 <pre class="r"><code>summNA_data &lt;- sumNA_data %&gt;%
   summarize(mean = mean(total, na.rm = TRUE), median = median(total, na.rm = TRUE))
-summNA_data</code></pre>
+head(summNA_data)</code></pre>
 <pre><code>## # A tibble: 1 x 2
 ##     mean median
 ##    &lt;dbl&gt;  &lt;dbl&gt;
